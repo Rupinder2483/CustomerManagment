@@ -33,6 +33,9 @@ namespace CustomerManagment.TestApi.Systems.Controllers
             var result=actionResult.Result;
           
 
+
+
+
             result.Should().BeOfType<OkObjectResult>()
                 .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
             ((ObjectResult)actionResult.Result).Value.Should().NotBeNull();
