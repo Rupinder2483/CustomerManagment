@@ -11,7 +11,7 @@ namespace CustomerManagment.DataAccessLayer.Interface
     public interface ICustomersDAL
     {
         public Task<IEnumerable<Customer>> GetCustomerList();
-        public Task<Customer> GetCustomer(int id);
+        public Task<Customer?> GetCustomer(int id);
         public Customer CreateCustomer(Customer customer);
         public HttpStatusCode DeleteCustomer(int id);
         public HttpStatusCode UpdateCustomer(int id, Customer customer);

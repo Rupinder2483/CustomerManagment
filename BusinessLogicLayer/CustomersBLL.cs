@@ -7,7 +7,7 @@ namespace CustomerManagment.BusinessLogicLayer
 {
     public class CustomersBLL:ICustomersBLL
     {
-        ICustomersDAL _dll;
+        private readonly ICustomersDAL _dll;
         public CustomersBLL(ICustomersDAL dll)
         {
             _dll = dll; 
@@ -17,7 +17,7 @@ namespace CustomerManagment.BusinessLogicLayer
             return await _dll.GetCustomerList();
         }
 
-        public async Task<Customer> GetCustomer(int id)
+        public async Task<Customer?> GetCustomer(int id)
         {
            return await _dll.GetCustomer(id);
 

@@ -19,7 +19,7 @@ namespace CustomerManagment.DataAccessLayer
 
         }
 
-        public async Task<Customer> GetCustomer(int id)
+        public async Task<Customer?> GetCustomer(int id)
         {
             return _db.Customers.FirstOrDefault(c => c.Id == id);
 
@@ -44,14 +44,14 @@ namespace CustomerManagment.DataAccessLayer
         }
         public HttpStatusCode UpdateCustomer(int id,Customer customer)
         {
-            var customerDB= _db.Customers.AsNoTracking().FirstOrDefault(c=>c.Id==id);
+            var customerDB= _db.Customers.AsNoTracking().First(c=>c.Id==id);
             if (customerDB == null)
             {
                 return HttpStatusCode.NotFound;
             }
             _db.Entry(customer).State = EntityState.Modified;
             _db.SaveChanges();
-            return HttpStatusCode.NoContent;
+            return HttpStatusCode.Accepted;
         }
     }
 }

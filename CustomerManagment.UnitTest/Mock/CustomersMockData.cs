@@ -6,15 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomerManagment.TestApi.MockData
+namespace CustomerManagment.TestApi.Mock
 {
     public class CustomersMockData
     {
-        public static List<Customer> MockCustomers = new List<Customer>
+        public static IEnumerable<Customer> MockCustomers = new List<Customer>
         {
             new Customer
             {
-
                 Id = 1,
                 First_Name = "James",
                 Last_Name = "Smith",

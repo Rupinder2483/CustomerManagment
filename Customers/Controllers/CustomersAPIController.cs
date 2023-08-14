@@ -36,7 +36,7 @@ namespace CustomerManagment.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
        
-        public async Task<ActionResult< Customer>> GetCustomer(int id)
+        public async Task<ActionResult< Customer?>> GetCustomer(int id)
         {
             if(id==0)
             {
@@ -96,7 +96,7 @@ namespace CustomerManagment.Api.Controllers
             {
                 return NotFound() ;
             }
-            return NoContent();
+            return Accepted();
         }
     }
 }
